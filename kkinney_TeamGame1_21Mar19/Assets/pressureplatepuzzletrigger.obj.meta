@@ -1,13 +1,15 @@
 fileFormatVersion: 2
-guid: a80f4b8e569d899499f6a2afafe3ade8
+guid: a0108e67803bfff479a439416bd42ea2
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: lambert1
-    2300000: //RootNode
-    3300000: //RootNode
+    100000: pCube1
+    100002: //RootNode
+    400000: pCube1
+    400002: //RootNode
+    2100000: pCube1Mat
+    2300000: pCube1
+    3300000: pCube1
     4300000: pCube1
   externalObjects: {}
   materials:
