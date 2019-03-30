@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotateAroundParent : MonoBehaviour {
 
-    public float dir;
+    public float zDirMod;
     public float rotSpeed;
 	
 	// Update is called once per frame
@@ -14,6 +14,6 @@ public class RotateAroundParent : MonoBehaviour {
         float angle = Vector3.Angle(targetDir, transform.forward);
 
         // Spin the object around the world origin at 20 degrees/second.
-        transform.RotateAround(transform.parent.transform.position, new Vector3(1, 1 + 1 * Random.Range(0,1) , 1 * dir), rotSpeed * Time.deltaTime);
+        transform.RotateAround(transform.parent.transform.position, new Vector3(1, 1 + 1 * Random.Range(0,1) , 1 * zDirMod), rotSpeed * Time.deltaTime);
 	}
 }
