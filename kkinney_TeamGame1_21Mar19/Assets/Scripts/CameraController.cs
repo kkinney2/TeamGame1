@@ -21,8 +21,20 @@ public class CameraController : MonoBehaviour
     private void Update()
     {
         transform.position = player.transform.position + offset;
-        transform.RotateAround(point: player.transform.position, axis: Vector3.up, angle: angleModX * Input.GetAxis("Mouse X"));
-        transform.RotateAround(point: player.transform.position, axis: transform.TransformVector(Vector3.right), angle: angleModY * Input.GetAxis("Mouse Y"));
+        transform.RotateAround( player.transform.position,  Vector3.up, angleModX * Input.GetAxis("Mouse X"));
+
+        if (transform.rotation.eulerAngles.x > -30 && transform.rotation.eulerAngles.x < 90)
+        {
+            transform.RotateAround(player.transform.position, transform.TransformVector(Vector3.left), angleModY * Input.GetAxis("Mouse Y"));
+        }
+        else if (transform.rotation.eulerAngles.x < -30 && Input.GetAxis("Mouse Y") < 0)
+        {
+            transform.RotateAround(player.transform.position, transform.TransformVector(Vector3.left), angleModY * Input.GetAxis("Mouse Y"));
+        }
+        else if (transform.rotation.eulerAngles.x > 90 && Input.GetAxis("Mouse Y") > 0)
+        {
+            transform.RotateAround(player.transform.position, transform.TransformVector(Vector3.left), angleModY * Input.GetAxis("Mouse Y"));
+        }
     }
 
     void LateUpdate()
