@@ -17,12 +17,6 @@ public class RotatingThirdPersonCamera : MonoBehaviour {
 	float pitch;
 
 	public bool InvertPitch;
-
-
-	void Start ()
-    {
-		
-	}
 	
 	void LateUpdate () {
 
@@ -37,10 +31,9 @@ public class RotatingThirdPersonCamera : MonoBehaviour {
 
 		currentRotation = Vector3.SmoothDamp (currentRotation, new Vector3 (pitch, yaw), ref rotationSmoothVelocity, acceleration);
 
-
 		transform.eulerAngles = currentRotation;
-        
-		transform.position = target.position+offset - (transform.forward * distanceFromTarget);
+
+        transform.position = target.position + offset - (transform.forward * distanceFromTarget);
 
 	}
 }
