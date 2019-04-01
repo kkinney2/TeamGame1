@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
-    public GameObject[] keys;
-    public Text keyText;
+    public GameObject Gate;
+    public GameObject[] Keys;
+    public Text KeyText;
 
-    bool gateOpen = false;
+    bool gateOpening = false;
     int keyCount = 0;
     
 
@@ -16,20 +17,22 @@ public class GameController : MonoBehaviour {
 	void Start () {
         AddKeyCount(0);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (keyCount >= keys.Length)
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (keyCount >= Keys.Length)
         {
-            gateOpen = true;
+            //Gate.GetComponent<GateController>().OpenGate();
+            AddKeyCount(-keyCount);
         }
-	}
+    }
 
     void AddKeyCount(int newMod)
     {
         keyCount += newMod;
 
-        keyText.text = "Keys: " + keyCount;
+        KeyText.text = "Keys: " + keyCount;
     }
 
     int GetKeyCount()
