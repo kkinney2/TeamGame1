@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4385993616381934}
   m_Layer: 0
-  m_Name: pressureplatepuzzlestart
+  m_Name: PressurePlate_Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

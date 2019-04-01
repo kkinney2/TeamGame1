@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 
-public class push : MonoBehaviour
+public class PushController : MonoBehaviour
 {
-    // this script pushes all rigidbodies that the character touches
+    // This script pushes all rigidbodies that the character touches
     public float pushPower = 2.0f;
+
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         Rigidbody body = hit.collider.attachedRigidbody;
