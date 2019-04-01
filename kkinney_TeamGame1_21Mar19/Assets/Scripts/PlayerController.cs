@@ -22,26 +22,26 @@ public class PlayerController : MonoBehaviour {
     {
         if (controller.isGrounded)
         {
-            // move direction directly from axes
-
-            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
-            moveDirection = transform.TransformDirection(moveDirection);
-            moveDirection = moveDirection * speed;
-
             if (Input.GetButton("Jump"))
             {
                 moveDirection.y = jumpSpeed;
             }
+        }
+        // move direction directly from axes
+        float moveY = moveDirection.y;
+        moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        moveDirection = transform.TransformDirection(moveDirection);
+        moveDirection = moveDirection * speed;
+        moveDirection.y = moveY;
 
-            // input detected, rotate player to face camera direction
-            if (moveDirection.magnitude > 0)
-            {
-                Quaternion rotation = transform.rotation;
-                rotation.eulerAngles = cameraObj.transform.rotation.eulerAngles;
-                rotation.x = 0;
-                rotation.z = 0;
-                transform.rotation = rotation;
-            }
+        // input detected, rotate player to face camera direction
+        if (new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).magnitude != 0)
+        {
+            Quaternion rotation = transform.rotation;
+            rotation.eulerAngles = cameraObj.transform.rotation.eulerAngles;
+            rotation.x = 0;
+            rotation.z = 0;
+            transform.rotation = rotation;
         }
 
         // Apply gravity
