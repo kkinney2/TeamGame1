@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -18874,8 +18874,8 @@ Transform:
   m_PrefabInternal: {fileID: 1021492978}
 --- !u!4 &1023617599 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400002, guid: 6674103888027d54d89206891467c627,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 4302856210086778, guid: aadacd725ebd9374db71a422fe09a350,
+    type: 2}
   m_PrefabInternal: {fileID: 1930885876}
 --- !u!1001 &1024684222
 Prefab:
@@ -35637,60 +35637,40 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 649485665}
     m_Modifications:
-    - target: {fileID: 400002, guid: 6674103888027d54d89206891467c627, type: 3}
+    - target: {fileID: 4302856210086778, guid: aadacd725ebd9374db71a422fe09a350, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0.22243921
       objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 6674103888027d54d89206891467c627, type: 3}
+    - target: {fileID: 4302856210086778, guid: aadacd725ebd9374db71a422fe09a350, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0.25111303
       objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 6674103888027d54d89206891467c627, type: 3}
+    - target: {fileID: 4302856210086778, guid: aadacd725ebd9374db71a422fe09a350, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0.8889091
       objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 6674103888027d54d89206891467c627, type: 3}
+    - target: {fileID: 4302856210086778, guid: aadacd725ebd9374db71a422fe09a350, type: 2}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 6674103888027d54d89206891467c627, type: 3}
+    - target: {fileID: 4302856210086778, guid: aadacd725ebd9374db71a422fe09a350, type: 2}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 6674103888027d54d89206891467c627, type: 3}
+    - target: {fileID: 4302856210086778, guid: aadacd725ebd9374db71a422fe09a350, type: 2}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 6674103888027d54d89206891467c627, type: 3}
+    - target: {fileID: 4302856210086778, guid: aadacd725ebd9374db71a422fe09a350, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 6674103888027d54d89206891467c627, type: 3}
+    - target: {fileID: 4302856210086778, guid: aadacd725ebd9374db71a422fe09a350, type: 2}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 6674103888027d54d89206891467c627, type: 3}
-      propertyPath: m_Name
-      value: pushblocktextured (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 6674103888027d54d89206891467c627, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 6674103888027d54d89206891467c627, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 6674103888027d54d89206891467c627, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 6674103888027d54d89206891467c627, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 81975110392a6d549a07ca3b3580acd4, type: 2}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6674103888027d54d89206891467c627, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: aadacd725ebd9374db71a422fe09a350, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &1933821074
 Prefab:
