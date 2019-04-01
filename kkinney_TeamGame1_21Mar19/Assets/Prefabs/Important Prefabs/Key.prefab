@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f68c79ef41efa479c7f7cc47a4579d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dir: 1
+  zDirMod: 0
   rotSpeed: 200
 --- !u!114 &114512101846264752
 MonoBehaviour:
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f68c79ef41efa479c7f7cc47a4579d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dir: -1
+  zDirMod: 0
   rotSpeed: 200
 --- !u!135 &135002460779164524
 SphereCollider:
