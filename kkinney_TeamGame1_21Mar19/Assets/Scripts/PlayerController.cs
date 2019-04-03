@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public float speed = 6.0f;
+    public float moveSpeed = 6.0f;
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
+    public float sprintSpeed = 10f;
 
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
     private GameObject cameraObj;
+    private float speed;
 
     void Start()
     {
@@ -20,6 +22,19 @@ public class PlayerController : MonoBehaviour {
 
     void Update()
     {
+        if (Input.GetButton("Sprint") && controller.isGrounded)
+        {
+            speed = sprintSpeed;
+        }
+        else if (speed == sprintSpeed && !controller.isGrounded)
+        {
+            speed = sprintSpeed;
+        }
+        else
+        {
+            speed = moveSpeed;
+        }
+
         if (controller.isGrounded)
         {
             if (Input.GetButton("Jump"))

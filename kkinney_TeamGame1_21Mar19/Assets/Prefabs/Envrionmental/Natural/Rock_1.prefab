@@ -36,6 +36,7 @@ GameObject:
   - component: {fileID: 4240124022499250}
   - component: {fileID: 33904539024491044}
   - component: {fileID: 23617418779945432}
+  - component: {fileID: 64942240124584730}
   m_Layer: 0
   m_Name: Rock_1Model
   m_TagString: Untagged
@@ -63,7 +64,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1182372795622124}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 146.15773, y: 6.93, z: 379.49762}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4240124022499250}
@@ -85,7 +86,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 729761c136855bb40a3df7ba071ba034, type: 3}
+  - {fileID: 2100000, guid: ac0e9c9af97bab84687b8149566d55fb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,4 +112,18 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1707310364783684}
+  m_Mesh: {fileID: 4300000, guid: 729761c136855bb40a3df7ba071ba034, type: 3}
+--- !u!64 &64942240124584730
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1707310364783684}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 729761c136855bb40a3df7ba071ba034, type: 3}

@@ -17,6 +17,13 @@ public class RotatingThirdPersonCamera : MonoBehaviour {
 	float pitch;
 
 	public bool InvertPitch;
+
+    void Start()
+    {
+        yaw = transform.eulerAngles.y;
+        pitch = transform.eulerAngles.x;
+        currentRotation = transform.eulerAngles;
+    }
 	
 	void LateUpdate () {
 
