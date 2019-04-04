@@ -42,6 +42,7 @@ public class GameController : MonoBehaviour {
 
         if(keyCount == 0)
         {
+            // UI Images for key placeholders
             foreach (Image i in ImageKeys)
             {
                 i.gameObject.SetActive(false);
