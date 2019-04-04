@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 143305170833270072}
   - component: {fileID: 114848797100493844}
   m_Layer: 0
-  m_Name: HoodieAnim_Idle
+  m_Name: Hoodie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
