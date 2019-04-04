@@ -31,15 +31,11 @@ public class PlayerController : MonoBehaviour {
         horizontalMove = Input.GetAxis("Horizontal");
         verticalMove = Input.GetAxis("Vertical");
 
-        if(horizontalMove < 1 && verticalMove < 1){
-            animator.SetBool("isWalking", false);
-            animator.SetBool("isRunning", false);
-        }
-        else
-        {
-            animator.SetBool("isWalking", true);
-            animator.SetBool("isRunning", false);
-        }
+        animator.SetBool("isWalking", false);
+        animator.SetBool("isRunning", false);
+        animator.SetBool("isJumping", false);
+
+
 
         if (Input.GetButton("Sprint") && controller.isGrounded)
         {
@@ -54,7 +50,6 @@ public class PlayerController : MonoBehaviour {
         else
         {
             speed = moveSpeed;
-            
         }
 
         if (controller.isGrounded)
@@ -62,6 +57,8 @@ public class PlayerController : MonoBehaviour {
             if (Input.GetButton("Jump"))
             {
                 moveDirection.y = jumpSpeed;
+
+                animator.SetBool("isJumping", true);
             }
         }
         // move direction directly from axes
@@ -79,6 +76,9 @@ public class PlayerController : MonoBehaviour {
             rotation.x = 0;
             rotation.z = 0;
             transform.rotation = rotation;
+
+            animator.SetBool("isWalking", true);
+            animator.SetBool("isRunning", false);
         }
 
         // Apply gravity
