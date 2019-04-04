@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+    public GameController GameController;
     public float moveSpeed = 6.0f;
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
@@ -13,18 +14,38 @@ public class PlayerController : MonoBehaviour {
     private CharacterController controller;
     private GameObject cameraObj;
     private float speed;
+    float horizontalMove;
+    float verticalMove;
+    float timeIdle = 0;
+    Animator animator;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
         cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
     void Update()
     {
+        horizontalMove = Input.GetAxis("Horizontal");
+        verticalMove = Input.GetAxis("Vertical");
+
+        if(horizontalMove < 1 && verticalMove < 1){
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isRunning", false);
+        }
+        else
+        {
+            animator.SetBool("isWalking", true);
+            animator.SetBool("isRunning", false);
+        }
+
         if (Input.GetButton("Sprint") && controller.isGrounded)
         {
             speed = sprintSpeed;
+            animator.SetBool("isRunning", true);
+            animator.SetBool("isWalking", false);
         }
         else if (speed == sprintSpeed && !controller.isGrounded)
         {
@@ -33,6 +54,7 @@ public class PlayerController : MonoBehaviour {
         else
         {
             speed = moveSpeed;
+            
         }
 
         if (controller.isGrounded)
@@ -44,13 +66,13 @@ public class PlayerController : MonoBehaviour {
         }
         // move direction directly from axes
         float moveY = moveDirection.y;
-        moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        moveDirection = new Vector3(horizontalMove, 0, verticalMove);
         moveDirection = transform.TransformDirection(moveDirection);
         moveDirection = moveDirection * speed;
         moveDirection.y = moveY;
 
         // input detected, rotate player to face camera direction
-        if (new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).magnitude != 0)
+        if (new Vector3(horizontalMove, 0, verticalMove).magnitude != 0)
         {
             Quaternion rotation = transform.rotation;
             rotation.eulerAngles = cameraObj.transform.rotation.eulerAngles;
@@ -64,5 +86,40 @@ public class PlayerController : MonoBehaviour {
 
         // Move the controller
         controller.Move(moveDirection * Time.deltaTime);
+
+        timeIdle += Time.deltaTime;
+
+        animator.SetFloat("TimeIdle", timeIdle);
+
+        if(timeIdle > 8)
+        {
+            timeIdle = 0;
+            animator.SetFloat("TimeIdle", timeIdle);
+        }
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.name == "Key")
+        {
+            other.gameObject.transform.position = Vector3.zero;
+            GameController.PickUpKey();
+        }
+
+        if (other.name == "PressurePlate_Cube")
+        {
+            animator.SetBool("isPushing", true);
+            animator.SetBool("isRunning", false);
+            animator.SetBool("isWalking", false);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.name == "PressurePlate_Cube")
+        {
+            animator.SetBool("isPushing", false);
+        }
     }
 }
