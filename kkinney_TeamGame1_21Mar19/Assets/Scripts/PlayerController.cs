@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour {
     float horizontalMove;
     float verticalMove;
     float timeIdle = 0;
+    int triggerCount = 0;
     Animator animator;
 
     void Start()
@@ -101,8 +102,9 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "Key")
+        if(other.CompareTag("Key") && triggerCount == 0)
         {
+            Debug.Log("Key Collision");
             other.gameObject.transform.position = Vector3.zero;
             GameController.PickUpKey();
         }

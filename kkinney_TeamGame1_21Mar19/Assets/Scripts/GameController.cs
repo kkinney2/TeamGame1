@@ -1,57 +1,69 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class GameController : MonoBehaviour {
+public class GameController : MonoBehaviour
+{
 
     public GameObject Gate;
     public Image[] ImageKeys;
     public GameObject[] Keys;
+    public GameObject[] KeysOnGate;
     public Text KeyText;
 
     bool gateOpening = false;
-    int keyCount = 0;
-    
+    int keyCount;
 
-	// Use this for initialization
-	void Start () {
-        AddKeyCount(0);
-	}
+    void Start()
+    {
+        SetKeyCount(0);
+    }
 
-    // Update is called once per frame
     void Update()
     {
-        if (keyCount >= Keys.Length)
+        /*if (keyCount >= Keys.Length)
         {
             //Gate.GetComponent<GateController>().OpenGate();
-            AddKeyCount(-keyCount);
-        }
+            SetKeyCount(0);
+        }*/
     }
 
     public void PickUpKey()
     {
-        AddKeyCount(1);
+        Debug.Log("PickUpKey() called");
+        SetKeyCount(keyCount + 1);
     }
 
-    void AddKeyCount(int newMod)
+    void SetKeyCount(int newMod)
     {
-        keyCount += newMod;
+        Debug.Log("newKeyCount: " + newMod);
 
+        keyCount = newMod;
+        UpdateKeys();
+    }
+
+    void UpdateKeys()
+    {
         KeyText.text = "Keys: " + keyCount;
+        Debug.Log("keycount: " + keyCount);
 
-        if(keyCount == 0)
+        if (keyCount == 0)
         {
             // UI Images for key placeholders
             foreach (Image i in ImageKeys)
             {
                 i.gameObject.SetActive(false);
             }
+            foreach (GameObject gateKey in KeysOnGate)
+            {
+                gateKey.gameObject.SetActive(false);
+            }
         }
 
         if (keyCount > 0)
         {
-            ImageKeys[keyCount--].gameObject.SetActive(true);
+            // Using keyCount-- actually subtracts 1 from keyCount instead of passing reference
+            ImageKeys [keyCount - 1].gameObject.SetActive(true);
+            KeysOnGate[keyCount - 1].gameObject.SetActive(true);
         }
     }
 
