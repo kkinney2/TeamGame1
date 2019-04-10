@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour {
     float horizontalMove;
     float verticalMove;
     float timeIdle = 0;
-    int triggerCount = 0;
     Animator animator;
 
     void Start()
@@ -102,7 +101,7 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Key") && triggerCount == 0)
+        if(other.CompareTag("Key"))
         {
             Debug.Log("Key Collision");
             other.gameObject.transform.position = Vector3.zero;
@@ -114,6 +113,11 @@ public class PlayerController : MonoBehaviour {
             animator.SetBool("isPushing", true);
             animator.SetBool("isRunning", false);
             animator.SetBool("isWalking", false);
+        }
+
+        if (other.CompareTag("Trigger_EndLevel"))
+        {
+            GameController.EndOfLevel();
         }
     }
 

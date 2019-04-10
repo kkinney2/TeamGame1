@@ -3,18 +3,20 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-
-    public GameObject Gate;
+    public GameObject Manager_Scene;
     public Image[] ImageKeys;
     public GameObject[] Keys;
     public GameObject[] KeysOnGate;
     public Text KeyText;
+    public Text GeneralText;
 
     bool gateOpening = false;
     int keyCount;
+    Manager_Scene sceneManager;
 
     void Start()
     {
+        sceneManager = Manager_Scene.GetComponent<Manager_Scene>();
         SetKeyCount(0);
     }
 
@@ -70,5 +72,11 @@ public class GameController : MonoBehaviour
     int GetKeyCount()
     {
         return keyCount;
+    }
+
+    public void EndOfLevel()
+    {
+        GeneralText.text = "End Of Level";
+        sceneManager.LoadNextScene();
     }
 }
