@@ -44,4 +44,9 @@ public class Manager_Scene : MonoBehaviour {
     {
         ErrorText.text = str;
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("_MainMenu_");
+    }
 }

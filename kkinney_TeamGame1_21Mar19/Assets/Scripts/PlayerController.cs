@@ -121,11 +121,6 @@ public class PlayerController : MonoBehaviour {
             animator.SetBool("isRunning", false);
             animator.SetBool("isWalking", false);
         }
-
-        if (other.CompareTag("Trigger_EndLevel"))
-        {
-            GameController.EndOfLevel();
-        }
     }
 
     private void OnTriggerExit(Collider other)
