@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour {
 
         animator.SetBool("isWalking", false);
         animator.SetBool("isRunning", false);
+        animator.SetBool("isFalling", false);
         animator.SetBool("isJumping", false);
 
 
@@ -61,6 +62,12 @@ public class PlayerController : MonoBehaviour {
                 animator.SetBool("isJumping", true);
             }
         }
+
+        if (controller.velocity.y < -0.3f)
+        {
+            animator.SetBool("isFalling", true);
+        }
+
         // move direction directly from axes
         float moveY = moveDirection.y;
         moveDirection = new Vector3(horizontalMove, 0, verticalMove);
