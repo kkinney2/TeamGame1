@@ -101,8 +101,9 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "Key")
+        if(other.CompareTag("Key"))
         {
+            Debug.Log("Key Collision");
             other.gameObject.transform.position = Vector3.zero;
             GameController.PickUpKey();
         }
@@ -112,6 +113,11 @@ public class PlayerController : MonoBehaviour {
             animator.SetBool("isPushing", true);
             animator.SetBool("isRunning", false);
             animator.SetBool("isWalking", false);
+        }
+
+        if (other.CompareTag("Trigger_EndLevel"))
+        {
+            GameController.EndOfLevel();
         }
     }
 
